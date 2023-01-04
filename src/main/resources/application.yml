@@ -1,0 +1,27 @@
+spring:
+  # Spring-related configs
+  application:
+    name: student-information-app
+
+  # Flyway configuration
+  flyway:
+    #url: jdbc:postgresql://localhost:5432/studentinformation-db
+    locations: classpath:db/migration/{vendor}
+    enabled: true
+
+
+  # database configuration
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/studentinformation-db
+    username: postgres
+    testOnBorrow: true
+    testWhileIdle: true
+    imeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: SELECT 1
+    max-active: 15
+    max-idle: 10
+    max-wait: 8000
+
+
